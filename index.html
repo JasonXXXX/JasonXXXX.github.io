@@ -96,52 +96,13 @@
       
         <blockquote>
 <p>FROM lintcode MARK 数组、字符串</p>
-<p>题目<br>…<br>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。</p>
 </blockquote>
-<p>置换的意思是，通过改变顺序可以使得两个字符串相等。</p>
-<p>输出样例<br>“abc” 为 “cba” 的置换。</p>
-<p>“aabc” 不是 “abcc” 的置换。<br>…</p>
-<blockquote>
-<p>先放代码<br>…<br>public class Solution {<br>    /**</p>
-<pre><code> * @param A a string
- * @param B a string
- * @return a boolean
- */
-public boolean stringPermutation(String A, String B) {
-    // Write your code here
-    if(A.length()!=B.length()) {
-        //判断长度是否一致，否返回false
-        return false;
-    } else {
-        //进行字符串的分割
-        String[] arrA = A.split(&quot;&quot;);
-        String[] arrB = B.split(&quot;&quot;);
-        //用一个数组来保存比较结果
-        int[] mark = new int[arrA.length];
-        for(int i=0; i&lt;mark.length; i++) {
-            //数组初始化为全0
-            mark[i] = 0;
-        }
-        for(int i=0; i&lt;arrA.length; i++) {
-            for(int j=0; j&lt;arrB.length; j++) {
-                if(arrB[j].equals(arrA[i]) &amp;&amp; mark[j]==0) {
-                    //若字符串一致并且int数组该index下值为0，则置为1
-                    mark[j] = 1;
-                    break;
-                }
-            }
-        }
-        for(int i=0; i&lt;mark.length; i++) {
-            if(mark[i]==0) {
-                //最后遍历数组，出现0则直接返回false
-                return false;
-            }
-        }
-        //全部为1返回true
-        return true;
-    }
-}
-</code></pre><p>}<br>…</p>
+<h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><blockquote>
+<p>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。<br>置换的意思是，通过改变顺序可以使得两个字符串相等。</p>
+</blockquote>
+<h5 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h5><blockquote>
+<p>“abc” 为 “cba” 的置换。<br>“aabc” 不是 “abcc” 的置换。</p>
+<p>先放代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    </div><div class="line">    public boolean stringPermutation(String A, String B) &#123;</div><div class="line">        // Write your code here</div><div class="line">        if(A.length()!=B.length()) &#123;</div><div class="line">            //判断长度是否一致，否返回false</div><div class="line">            return false;</div><div class="line">        &#125; else &#123;</div><div class="line">            //进行字符串的分割</div><div class="line">            String[] arrA = A.split(&quot;&quot;);</div><div class="line">            String[] arrB = B.split(&quot;&quot;);</div><div class="line">            //用一个数组来保存比较结果</div><div class="line">            int[] mark = new int[arrA.length];</div><div class="line">            for(int i=0; i&lt;mark.length; i++) &#123;</div><div class="line">                //数组初始化为全0</div><div class="line">                mark[i] = 0;</div><div class="line">            &#125;</div><div class="line">            for(int i=0; i&lt;arrA.length; i++) &#123;</div><div class="line">                for(int j=0; j&lt;arrB.length; j++) &#123;</div><div class="line">                    if(arrB[j].equals(arrA[i]) &amp;&amp; mark[j]==0) &#123;</div><div class="line">                        //若字符串一致并且int数组该index下值为0，则置为1</div><div class="line">                        mark[j] = 1;</div><div class="line">                        break;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            for(int i=0; i&lt;mark.length; i++) &#123;</div><div class="line">                if(mark[i]==0) &#123;</div><div class="line">                    //最后遍历数组，出现0则直接返回false</div><div class="line">                    return false;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            //全部为1返回true</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我的思路</p>
 <ul>
 <li>判断字符串长度是否相同，不相同直接返回false</li>
@@ -158,7 +119,7 @@ public boolean stringPermutation(String A, String B) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/数据结构-一-字符串置换/" data-id="cj3m16yfd0001l4fwkwgwe7ab" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/数据结构-一-字符串置换/" data-id="cj3m1ecdo0001xwfw7k3pyuo2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -201,7 +162,7 @@ public boolean stringPermutation(String A, String B) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/第一篇博客/" data-id="cj3m16yfh0002l4fw33a6duks" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/第一篇博客/" data-id="cj3m1ecdt0002xwfw7dw25lz8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
@@ -248,7 +209,7 @@ public boolean stringPermutation(String A, String B) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj3m16yf20000l4fw9mue5255" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj3m1ecdg0000xwfwlw2tfo21" class="article-share-link">Share</a>
       
       
     </footer>
