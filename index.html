@@ -68,6 +68,106 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据结构-一-字符串置换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/07/数据结构-一-字符串置换/" class="article-date">
+  <time datetime="2017-06-06T16:00:00.000Z" itemprop="datePublished">2017-06-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/07/数据结构-一-字符串置换/">数据结构训练一：字符串置换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>FROM lintcode MARK 数组、字符串</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。</p>
+</blockquote>
+<p>置换的意思是，通过改变顺序可以使得两个字符串相等。</p>
+<p>输出样例<br>“abc” 为 “cba” 的置换。</p>
+<h2 id="“aabc”-不是-“abcc”-的置换。"><a href="#“aabc”-不是-“abcc”-的置换。" class="headerlink" title="“aabc” 不是 “abcc” 的置换。"></a>“aabc” 不是 “abcc” 的置换。</h2><h2 id="gt-先放代码"><a href="#gt-先放代码" class="headerlink" title="&gt; 先放代码"></a>&gt; 先放代码</h2><p>public class Solution {<br>    /**</p>
+<pre><code> * @param A a string
+ * @param B a string
+ * @return a boolean
+ */
+public boolean stringPermutation(String A, String B) {
+    // Write your code here
+    if(A.length()!=B.length()) {
+        //判断长度是否一致，否返回false
+        return false;
+    } else {
+        //进行字符串的分割
+        String[] arrA = A.split(&quot;&quot;);
+        String[] arrB = B.split(&quot;&quot;);
+        //用一个数组来保存比较结果
+        int[] mark = new int[arrA.length];
+        for(int i=0; i&lt;mark.length; i++) {
+            //数组初始化为全0
+            mark[i] = 0;
+        }
+        for(int i=0; i&lt;arrA.length; i++) {
+            for(int j=0; j&lt;arrB.length; j++) {
+                if(arrB[j].equals(arrA[i]) &amp;&amp; mark[j]==0) {
+                    //若字符串一致并且int数组该index下值为0，则置为1
+                    mark[j] = 1;
+                    break;
+                }
+            }
+        }
+        for(int i=0; i&lt;mark.length; i++) {
+            if(mark[i]==0) {
+                //最后遍历数组，出现0则直接返回false
+                return false;
+            }
+        }
+        //全部为1返回true
+        return true;
+    }
+}
+</code></pre><h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2><blockquote>
+<p>我的思路</p>
+<ul>
+<li>判断字符串长度是否相同，不相同直接返回false</li>
+<li>长度相同的情况下，将获取到的两个字符串进行分割，用split(“”)，返回字符串数组</li>
+<li>通过嵌套循环比较两个字符串数组中的每个字符串是否相同；比较的结果通过一个与字符串数组长度相同的int数组来保存（相同设置为1）；循环结束后，判断int数组是否全部为1，是则返回true，否则返回false</li>
+</ul>
+<p>结果</p>
+<ul>
+<li>代码可以完成预定功能。<br>思考</li>
+<li>嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/07/数据结构-一-字符串置换/" data-id="cj3m10bgd0001hgfwuyufemh3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法-数据结构/">算法 数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/16/第一篇博客/" class="article-date">
@@ -99,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/第一篇博客/" data-id="cj3m0v5470001ykfwciv9vkwk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/第一篇博客/" data-id="cj3m10bgd0002hgfwkx48ryv5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
@@ -146,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj3m0v53s0000ykfwy52c0rej" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj3m10bfx0000hgfw571oqsbe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +265,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
     </div>
   </div>
 
@@ -175,7 +275,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法-数据结构/">算法 数据结构</a></li></ul>
     </div>
   </div>
 
@@ -185,7 +285,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/其他/" style="font-size: 10px;">其他</a>
+      <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/算法-数据结构/" style="font-size: 10px;">算法 数据结构</a>
     </div>
   </div>
 
@@ -194,7 +294,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -205,6 +305,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/07/数据结构-一-字符串置换/">数据结构训练一：字符串置换</a>
+          </li>
         
           <li>
             <a href="/2017/05/16/第一篇博客/">第一篇博客</a>
