@@ -95,7 +95,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h4 id="FROM-lintcode-MARK-数组、字符串"><a href="#FROM-lintcode-MARK-数组、字符串" class="headerlink" title="FROM lintcode MARK 数组、字符串"></a>FROM lintcode MARK 数组、字符串</h4><blockquote>
+<blockquote>
+<p>FROM lintcode MARK 数组、字符串</p>
 <p>题目</p>
 <ul>
 <li>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。</li>
@@ -118,84 +119,12 @@
 <li>代码可以完成预定功能。</li>
 </ul>
 <p>思考</p>
-<ul>
-<li>嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高</li>
-</ul>
-</blockquote>
+<h2 id="嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高"><a href="#嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高" class="headerlink" title="- 嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高"></a>- 嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高</h2></blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/数据结构-字符串置换的实现/" data-id="cj6a3r66y0002gsfwc1ukg5uz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-数据结构-一-字符串置换" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/07/数据结构-一-字符串置换/" class="article-date">
-  <time datetime="2017-06-06T16:00:00.000Z" itemprop="datePublished">2017-06-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/07/数据结构-一-字符串置换/">数据结构训练一：字符串置换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="FROM-lintcode-MARK-数组、字符串"><a href="#FROM-lintcode-MARK-数组、字符串" class="headerlink" title="FROM lintcode MARK 数组、字符串"></a>FROM lintcode MARK 数组、字符串</h4><blockquote>
-<p>题目</p>
-<ul>
-<li>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。</li>
-<li>置换的意思是，通过改变顺序可以使得两个字符串相等。</li>
-</ul>
-<p>输出样例</p>
-<ul>
-<li>“abc” 为 “cba” 的置换。</li>
-<li>“aabc” 不是 “abcc” 的置换。</li>
-</ul>
-<p>先放代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">stringPermutation</span><span class="params">(String A, String B)</span> </span>&#123;</div><div class="line">        <span class="comment">// Write your code here</span></div><div class="line">        <span class="keyword">if</span>(A.length()!=B.length()) &#123;</div><div class="line">            <span class="comment">//判断长度是否一致，否返回false</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//进行字符串的分割</span></div><div class="line">            String[] arrA = A.split(<span class="string">""</span>);</div><div class="line">            String[] arrB = B.split(<span class="string">""</span>);</div><div class="line">            <span class="comment">//用一个数组来保存比较结果</span></div><div class="line">            <span class="keyword">int</span>[] mark = <span class="keyword">new</span> <span class="keyword">int</span>[arrA.length];</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;mark.length; i++) &#123;</div><div class="line">                <span class="comment">//数组初始化为全0</span></div><div class="line">                mark[i] = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arrA.length; i++) &#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;arrB.length; j++) &#123;</div><div class="line">                    <span class="keyword">if</span>(arrB[j].equals(arrA[i]) &amp;&amp; mark[j]==<span class="number">0</span>) &#123;</div><div class="line">                        <span class="comment">//若字符串一致并且int数组该index下值为0，则置为1</span></div><div class="line">                        mark[j] = <span class="number">1</span>;</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;mark.length; i++) &#123;</div><div class="line">                <span class="keyword">if</span>(mark[i]==<span class="number">0</span>) &#123;</div><div class="line">                    <span class="comment">//最后遍历数组，出现0则直接返回false</span></div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//全部为1返回true</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>我的思路</p>
-<ul>
-<li>判断字符串长度是否相同，不相同直接返回false</li>
-<li>长度相同的情况下，将获取到的两个字符串进行分割，用split(“”)，返回字符串数组</li>
-<li>通过嵌套循环比较两个字符串数组中的每个字符串是否相同；比较的结果通过一个与字符串数组长度相同的int数组来保存（相同设置为1）；循环结束后，判断int数组是否全部为1，是则返回true，否则返回false</li>
-</ul>
-<p>结果</p>
-<ul>
-<li>代码可以完成预定功能。</li>
-</ul>
-<p>思考</p>
-<ul>
-<li>嵌套循环的使用使得程序效率低下，时间、空间复杂度都较高</li>
-</ul>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/数据结构-一-字符串置换/" data-id="cj6a3r66v0001gsfw4u4iimzc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/数据结构-字符串置换的实现/" data-id="cj6a3utj60001x8fwp1u73ftf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -233,18 +162,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<blockquote>
 <p>基本使用入门</p>
 <ul>
 <li>在/source/_posts新建md文档,编写之</li>
-<li>一次执行清除, 刷新, 部署三个命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure></li>
+<li>一次执行清除, 刷新, 部署三个命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/第一篇博客/" data-id="cj6a3r6740005gsfw5aq89jhm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/第一篇博客/" data-id="cj6a3utj90002x8fw5969hpwq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
@@ -291,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj6a3r66o0000gsfwsb79qrmy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj6a3utiz0000x8fwe3a1e57q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +262,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/数据结构/" style="font-size: 20px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
     </div>
   </div>
 
@@ -353,10 +285,6 @@
         
           <li>
             <a href="/2017/06/07/数据结构-字符串置换的实现/">数据结构训练集 - 字符串置换</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/07/数据结构-一-字符串置换/">数据结构训练一：字符串置换</a>
           </li>
         
           <li>
